@@ -20,17 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // add Cancel button icon
+    // Add Cancel button icon
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancel)];
     self.navigationItem.leftBarButtonItem = leftBarButton;
     
-    // add Tweet button
+    // Add Tweet button
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet)];
     self.navigationItem.rightBarButtonItem = rightBarButton;
     
     User *currentUser = [User currentUser];
     
-    // rounded corners for profile images
+    // Rounded corners for profile images
     CALayer *layer = [self.profileImageView layer];
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:3.0];
@@ -38,10 +38,10 @@
     self.nameLabel.text = currentUser.name;
     self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", currentUser.screenName];
     
-    // set self as delegate for text view events
+    // Set self as delegate for text view events
     self.tweetTextView.delegate = self;
     
-    // set initial reply to string if a reply
+    // Ret initial reply to string if a reply
     if (_replyToTweet) {
         // if replying to a retweet, mention original tweet author and retweeter
         if (_replyToTweet.retweetedTweet) {
@@ -55,15 +55,15 @@
         }
     }
     
-    // set initial mention if writing to user
+    // Set initial mention if writing to user
     if (_messageToUser) {
         self.tweetTextView.text = [NSString stringWithFormat:@"@%@ ", _messageToUser.screenName];
     }
     
-    // initialize character count
+    // Initialize character count
     [self textViewDidChange:self.tweetTextView];
     
-    // start with focus on the text view
+    // Start with focus on the text view
     [self.tweetTextView becomeFirstResponder];
 }
 
@@ -73,7 +73,7 @@
 }
 
 - (void)onCancel {
-    // update status bar appearance
+    // Update status bar appearance
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController popViewControllerAnimated:YES];
     [self.view endEditing:YES];

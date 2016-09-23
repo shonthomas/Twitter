@@ -29,15 +29,16 @@
     
     [self setMenuOpen:NO];
     
-    // set bg color
+    // Set background color
     self.view.backgroundColor = [UIColor colorWithRed:14/255.0f green:144/255.0f blue:233/255.0f alpha:1.0f];
     
-    // reset constraint
+    // Reset constraint
     self.contentViewLeftMargin.constant = 0;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = [UIColor clearColor];
+    // Adding a footerView to hide the empty cells and to auto resize
     self.tableView.tableFooterView = [UIView new];
     
     [self initViewControllers];
@@ -49,13 +50,11 @@
     // Timeline
     TweetsViewController *tweetsVC = [[TweetsViewController alloc] init];
     UINavigationController *tweetsNC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
-    tweetsNC.navigationBar.translucent = NO;
     tweetsVC.delegate = self;
     
     // Profile View
     ProfileViewController *profileViewVC = [[ProfileViewController alloc] init];
     UINavigationController *profileViewNC = [[UINavigationController alloc] initWithRootViewController:profileViewVC];
-    profileViewNC.navigationBar.translucent = NO;
     
     self.viewControllers = [NSArray arrayWithObjects:tweetsNC, profileViewNC, nil];
     
@@ -104,6 +103,7 @@
             break;
     }
     
+    // Setting the background color for the selected row
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor colorWithRed:206.0f/255.0f green:231.0f/255.0f blue:248.0f/255.0f alpha:1.0f];
     cell.selectedBackgroundView = bgColorView;
@@ -134,13 +134,8 @@
 }
 
 - (void)viewDidLayoutSubviews {
+    // Needed to add this to update the navbar height on layout change
     [self removeCurrentViewController];
-    [self setContentController];
-}
-
-- (void)showProfileViewController {
-    [self removeCurrentViewController];
-    self.currentVC = self.viewControllers[1];
     [self setContentController];
 }
 

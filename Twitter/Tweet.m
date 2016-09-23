@@ -89,19 +89,19 @@
     self.retweeted = !self.retweeted;
     if (self.retweeted) {
         self.retweetCount++;
-        // retweet
+        // Retweet
         [[TwitterClient sharedInstance] retweetWithParams:nil tweet:self completion:^(NSString *retweetIdStr, NSError *error) {
             if (error) {
                 NSLog(@"Retweet failed");
             } else {
                 NSLog([NSString stringWithFormat:@"Retweet successful, retweet_id_str: %@", retweetIdStr]);
-                // set retweet id string so it can be unretweeted
+                // Set retweet id string so it can be unretweeted
                 self.retweetIdStr = retweetIdStr;
             }
         }];
     } else {
         self.retweetCount--;
-        // unretweet
+        // Unretweet
         [[TwitterClient sharedInstance] unretweetWithParams:nil tweet:self completion:^(NSError *error) {
             if (error) {
                 NSLog(@"Unretweet failed");
@@ -118,7 +118,7 @@
     self.favorited = !self.favorited;
     if (self.favorited) {
         self.favoriteCount++;
-        // favorite
+        // Favorite
         [[TwitterClient sharedInstance] favoriteWithParams:nil tweet:self completion:^(NSError *error) {
             if (error) {
                 NSLog(@"Favorite failed");
@@ -128,7 +128,7 @@
         }];
     } else {
         self.favoriteCount--;
-        // unfavorite
+        // Unfavorite
         [[TwitterClient sharedInstance] unfavoriteWithParams:nil tweet:self completion:^(NSError *error) {
             if (error) {
                 NSLog(@"Unfavorite failed");

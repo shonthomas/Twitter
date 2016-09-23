@@ -30,7 +30,6 @@
     
     // Menu toggle button
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleMenu)];
-    
     self.navigationItem.leftBarButtonItem = leftBarButton;
     
     // Title
@@ -60,10 +59,10 @@
     [self.refreshControl addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventValueChanged];
     [self.tweetTableView addSubview:self.refreshControl];
     
-    // register tweet cell nib
+    // Register tweet cell nib
     [self.tweetTableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"TweetCell"];
     
-    // set self as table view data source and delegate
+    // Set self as table view data source and delegate
     self.tweetTableView.dataSource = self;
     self.tweetTableView.delegate = self;
     self.tweetTableView.estimatedRowHeight = 100;
@@ -82,16 +81,6 @@
     [self.delegate toggleMenu];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count;
 }
@@ -104,7 +93,7 @@
     
     // End of list load more
     if (indexPath.row == self.tweets.count - 1) {
-        NSLog(@"End of list reached...");
+        NSLog(@"End of list reached, loading more");
         [self loadMoreTweets];
     }
     
@@ -112,7 +101,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // unhighlight selection
+    // Unhighlight selection
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TweetViewController *tweetVC = [[TweetViewController alloc] init];
@@ -122,7 +111,7 @@
 }
 
 - (void) loadMoreTweets {
-    // return if no previous max id str
+    // Return if no previous max id str
     NSString *maxIdStr = [self.tweets[self.tweets.count - 1] idStr];
     if (!maxIdStr) {
         return;
@@ -131,7 +120,7 @@
         if (error) {
             NSLog([NSString stringWithFormat:@"Error getting more tweets: %@", error]);
         } else if (tweets.count > 0) {
-            // ignore duplicate requests
+            // Ignore duplicate requests
             if ([[tweets[tweets.count - 1] idStr] isEqualToString:[self.tweets[self.tweets.count - 1] idStr]]) {
                 NSLog(@"Ignoring duplicate data");
             } else {
@@ -173,7 +162,6 @@
 }
 
 - (void)didTweetSuccessfully {
-    // so a newly generated tweet can be replied or favorited
     [self.tweetTableView reloadData];
 }
 
@@ -198,7 +186,7 @@
 - (void)onReply:(TweetCell *)tweetCell {
     ComposeViewController *composeVC = [[ComposeViewController alloc] init];
     composeVC.delegate = self;
-    // set reply to tweet property
+    // Set reply to tweet property
     composeVC.replyToTweet = tweetCell.tweet;
     [self.navigationController pushViewController:composeVC animated:YES];
 }
@@ -208,5 +196,15 @@
     [profileVC setUser:user];
     [self.navigationController pushViewController:profileVC animated:YES];
 }
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

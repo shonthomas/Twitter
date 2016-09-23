@@ -36,12 +36,11 @@
     
     // Sign Out button
     if (!self.user) {
-        // add Sign Out button
         UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout)];
         self.navigationItem.leftBarButtonItem = leftBarButton;
     }
     // Compose button
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(onNew)];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(onCompose)];
     self.navigationItem.rightBarButtonItem = rightBarButton;
     
     // Title
@@ -119,7 +118,6 @@
         
         [profileCell setUser:user];
         
-        // to handle page change event
         profileCell.delegate = self;
         profileCell.backgroundColor = [UIColor clearColor];
         
@@ -133,14 +131,13 @@
     }
 }
 
-- (void)onNew {
+- (void)onCompose {
     ComposeViewController *composeVC = [[ComposeViewController alloc] init];
     if (self.user && ![self.user.screenName isEqualToString:[[User currentUser] screenName]]) {
         composeVC.messageToUser = self.user;
     }
     composeVC.delegate = self;
     [self.navigationController pushViewController:composeVC animated:YES];
-    
 }
 
 - (void)onReply:(TweetCell *)tweetCell {
@@ -174,7 +171,6 @@
 }
 
 - (void)didTweetSuccessfully {
-    // so a newly generated tweet can be replied or favorited
     [self.tableView reloadData];
 }
 

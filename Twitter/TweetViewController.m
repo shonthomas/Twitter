@@ -42,7 +42,7 @@
             [self.retweetedByLabel setHidden:YES];
         }
         
-        // rounded corners for profile images
+        // Rounded corners for profile images
         CALayer *layer = [self.profileImageView layer];
         [layer setMasksToBounds:YES];
         [layer setCornerRadius:3.0];
@@ -57,11 +57,11 @@
         self.retweetCountLabel.text = [NSString stringWithFormat:@"%ld", (long)_tweet.retweetCount];
         self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld", (long)tweetToDisplay.favoriteCount];
         
-         // set action button highlight states
+         // Set action button highlight states
         [self highlightButton:self.retweetButton highlight:_tweet.retweeted];
         [self highlightButton:self.favoriteButton highlight:_tweet.favorited];
         
-        // if this tweet has no id, then disable all actions
+        // If this tweet has no id, then disable all actions
         if (!_tweet.idStr) {
             rightBarButton.enabled = NO;
             self.retweetButton.enabled = NO;
@@ -69,7 +69,7 @@
             self.favoriteButton.enabled = NO;
         }
         
-        // if this is the user's own tweet, disable retweet
+        // If this is the user's own tweet, disable retweet
         if (!_tweet.retweetedTweet && [[[User currentUser] screenName] isEqualToString:user.screenName]) {
             self.retweetButton.enabled = NO;
         }

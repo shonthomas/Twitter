@@ -42,11 +42,13 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:85/255.0f green:172/255.0f blue:238/255.0f alpha:1.0f]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTranslucent:NO];
     
     
     [self.window makeKeyAndVisible];
     
-//    [self performSelector:@selector(checkUser) withObject:nil afterDelay:3];
+    // Added for debugging
+    // [self performSelector:@selector(checkUser) withObject:nil afterDelay:3];
     
     return YES;
 }

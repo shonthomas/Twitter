@@ -30,7 +30,7 @@
 - (IBAction)onLogin:(id)sender {
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
-            // Modally present tweets view
+            // Present tweets view
             NSLog(@"Welcome to %@", user.name);
             MenuViewController *menuVC = [[MenuViewController alloc] init];
             [self presentViewController:menuVC animated:YES completion:nil];

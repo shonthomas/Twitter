@@ -30,12 +30,12 @@
     
     User *user = tweet.user;
     
-    // rounded corners for profile images
+    // Rounded corners for profile images
     CALayer *layer = [self.profilePic layer];
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:3.0];
     
-    //Asynchronous
+    // Asynchronous
     NSString *imagePath = tweet.user.profileImageUrl;
     if ([imagePath isKindOfClass:[NSString class]]) {
         [self.profilePic setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"no-image"]];
@@ -45,7 +45,7 @@
     self.nameLabel.text = tweet.user.name;
     self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     
-    // show relative time since now if 24 hours or more has elapsed
+    // Show relative time since now if 24 hours or more has elapsed
     NSTimeInterval secondsSinceTweet = -[tweet.createdAt timeIntervalSinceNow];
     
     if (secondsSinceTweet >= 86400) {
@@ -64,11 +64,11 @@
         self.timestampLabel.text = [NSString stringWithFormat:@"%.0fs", secondsSinceTweet];
     }
     
-    // disable if no id
+    // Disable if no id
     if (!tweet.idStr) {
         self.replyButton.enabled = self.retweetButton.enabled = self.favoriteButton.enabled = NO;
     } else {
-        // disable retweet for self and not retweet
+        // Disable retweet for self and not retweet
         if (!tweet.retweetedTweet && [user.screenName isEqualToString:[User currentUser].screenName]) {
             self.replyButton.enabled = self.favoriteButton.enabled = YES;
             self.retweetButton.enabled = NO;
@@ -119,7 +119,7 @@
     
     BOOL favorited = [tweetToFavorite favorite];
     
-    // favorite/unfavorite the source
+    // Favorite/unfavorite the source
     if (_tweet.retweetedTweet) {
         _tweet.favorited = favorited;
     }
