@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
+            <connections>
+                <outlet property="contentView" destination="ygf-kk-DqF" id="eqg-32-sWg"/>
+                <outlet property="contentViewLeftMargin" destination="XLV-kA-ndc" id="isi-cT-mQf"/>
+                <outlet property="tableView" destination="Le5-Ki-6OB" id="WNz-ov-Ee3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVe-OP-Ki8" userLabel="Container View">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-Ki-6OB">
+                            <rect key="frame" x="0.0" y="30" width="240" height="570"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="iOl-DX-2cV"/>
+                            </constraints>
+                        </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygf-kk-DqF" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="ZWb-z6-E8a" appends="YES" id="zDp-jO-jr3"/>
+                                <outletCollection property="gestureRecognizers" destination="Sy4-1U-unB" appends="YES" id="QTs-Wh-ADX"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Le5-Ki-6OB" secondAttribute="bottom" id="ORS-aF-mHK"/>
+                        <constraint firstItem="ygf-kk-DqF" firstAttribute="top" secondItem="jVe-OP-Ki8" secondAttribute="top" id="VKX-OQ-COL"/>
+                        <constraint firstItem="ygf-kk-DqF" firstAttribute="leading" secondItem="jVe-OP-Ki8" secondAttribute="leading" id="XLV-kA-ndc"/>
+                        <constraint firstItem="Le5-Ki-6OB" firstAttribute="leading" secondItem="jVe-OP-Ki8" secondAttribute="leading" id="Y4R-Z8-M7d"/>
+                        <constraint firstAttribute="trailing" secondItem="ygf-kk-DqF" secondAttribute="trailing" id="tyi-g0-XRR"/>
+                        <constraint firstAttribute="bottom" secondItem="ygf-kk-DqF" secondAttribute="bottom" id="y7O-lT-xQW"/>
+                        <constraint firstItem="Le5-Ki-6OB" firstAttribute="top" secondItem="jVe-OP-Ki8" secondAttribute="top" constant="30" id="yfP-jh-etn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jVe-OP-Ki8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GTO-wR-BLF"/>
+                <constraint firstItem="jVe-OP-Ki8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XK9-x5-fCH"/>
+                <constraint firstAttribute="bottom" secondItem="jVe-OP-Ki8" secondAttribute="bottom" id="tra-za-BOQ"/>
+                <constraint firstAttribute="trailing" secondItem="jVe-OP-Ki8" secondAttribute="trailing" id="y9O-Ue-KEb"/>
+            </constraints>
+        </view>
+        <swipeGestureRecognizer direction="left" id="ZWb-z6-E8a" userLabel="Swipe Left Gesture Recognizer">
+            <connections>
+                <action selector="didSwipeLeft:" destination="-1" id="RtE-ZM-i5i"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="Sy4-1U-unB" userLabel="Swipe Right Gesture Recognizer">
+            <connections>
+                <action selector="didSwipeRight:" destination="-1" id="dqF-b2-I4y"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+</document>

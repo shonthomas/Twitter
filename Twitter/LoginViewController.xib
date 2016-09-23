@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hei-mA-sHb">
+                    <rect key="frame" x="273" y="530" width="54" height="30"/>
+                    <state key="normal" title="Login in">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="3F8-z6-aW1"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="ETc-Zw-sFb">
+                    <rect key="frame" x="35" y="50" width="40" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Cif-3x-U0q"/>
+                        <constraint firstAttribute="height" constant="39" id="raw-WS-R1U"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Twitter" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z22-GG-EPG">
+                    <rect key="frame" x="36" y="162" width="366.5" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="228" id="ZZa-Y0-yKF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ZZa-Y0-yKF"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.16244193162252901" green="0.6187308711225683" blue="0.93355368589999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="z22-GG-EPG" secondAttribute="trailing" constant="336" id="4Og-Wq-4UC"/>
+                <constraint firstItem="ETc-Zw-sFb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="8mL-jt-bec"/>
+                <constraint firstItem="z22-GG-EPG" firstAttribute="top" secondItem="ETc-Zw-sFb" secondAttribute="bottom" constant="73" id="Is2-4P-eaP"/>
+                <constraint firstItem="hei-mA-sHb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RgT-Yx-CAC"/>
+                <constraint firstAttribute="bottom" secondItem="hei-mA-sHb" secondAttribute="bottom" constant="40" id="Y92-W9-p50"/>
+                <constraint firstItem="ETc-Zw-sFb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="bpH-GL-Ok8"/>
+                <constraint firstItem="hei-mA-sHb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="475" id="faa-dd-XX1"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="z22-GG-EPG" secondAttribute="trailing" constant="336" id="no8-Tv-0yH"/>
+                <constraint firstItem="z22-GG-EPG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="36" id="rHH-Yo-KnZ"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="z22-GG-EPG" secondAttribute="trailing" constant="36" id="t8Y-5F-zWW"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4Og-Wq-4UC"/>
+                    <exclude reference="no8-Tv-0yH"/>
+                    <exclude reference="faa-dd-XX1"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="Twitter_logo_white" width="1139" height="926"/>
+    </resources>
+</document>

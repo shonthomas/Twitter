@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetsViewController">
+            <connections>
+                <outlet property="tweetTableView" destination="dTU-A5-oX1" id="9hy-u7-v5e"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dTU-A5-oX1">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dTU-A5-oX1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1Al-v5-cGg"/>
+                <constraint firstItem="dTU-A5-oX1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FZC-0d-2mK"/>
+                <constraint firstAttribute="bottom" secondItem="dTU-A5-oX1" secondAttribute="bottom" id="STM-av-8DG"/>
+                <constraint firstAttribute="trailing" secondItem="dTU-A5-oX1" secondAttribute="trailing" id="Z4M-TI-bsm"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
